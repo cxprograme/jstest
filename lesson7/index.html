@@ -1,0 +1,53 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>轮播图</title>
+      <script src="js/lackbone.js"></script>
+      <style>
+          #box{
+            width:50px;
+          }
+      </style>
+  </head>
+  <body>
+    <div class="demo">div1</div>
+    <div class="demo">div2</div>
+    <div class="demo">div3</div>
+    <div id="box">div4</div>
+
+    <ul>
+      <li>12</li>
+      <li>12</li>
+      <li>22</li>
+      <li>333</li>
+    </ul>
+    <script>
+      // $(".demo").css({
+      //     color:'red',
+      //     background:'black'
+      // });
+      // $("#box").css("color","red");
+      // $("#box").css('width');
+      // $(".demo").eq(1).css("color",'yellow');
+      // var demo=document.getElementsByClassName("demo");
+      // console.log($(".demo")[1]);
+      //
+      // console.log($(".demo").length);
+      //
+      // $(".demo").each(function(i){
+      //   // console.log($(this).eq(1).css('color','red')+"....."+i);
+      //    $(this).css('color','red');
+      // })
+
+      // alert($("li").eq(1).html('<a>baidu</a>'));
+      // alert($("li").text());
+      // $("li").eq(1).text("<a>vba</a>")
+
+       $("li").eq(1).text("<a>vba</a>").css("color",'red');
+
+
+    </script>
+  </body>
+  </html>

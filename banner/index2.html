@@ -1,0 +1,29 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>轮播图</title>
+      <script src="js/move.js"></script>
+      <style>
+
+        #box{
+          width: 100px;
+          height:100px;
+          background: red;
+        }
+      </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+        var box=document.getElementById("box");
+        move(box,{
+          'marginLeft':'300px'
+
+        },2000,function(){
+          
+        });
+    </script>
+  </body>
+</html>

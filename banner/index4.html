@@ -1,0 +1,34 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>轮播图</title>
+      <script src="js/move.js"></script>
+      <style>
+      </style>
+  </head>
+  <body>
+      <ul>
+          <li>qwqwqw</li>
+          <li>qwqwsd</li>
+          <li>wqwqws</li>
+          <li>qwqwqw</li>
+      </ul>
+  </body>
+  <script>
+      var $ul=document.getElementsByTagName("ul");
+      var $li=$ul[0].getElementsByTagName("li");
+
+      for(var i=0;i<$li.length;i++ ){
+
+
+        (function(x){
+          $li[x].onclick=function(){
+            alert(x);
+          }
+        })(i);
+
+      }
+  </script>
+</html>

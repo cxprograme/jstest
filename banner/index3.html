@@ -1,0 +1,108 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>轮播图</title>
+      <script src="js/move.js"></script>
+      <style>
+      </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+          //  a();
+          //  var y=a();
+          //  alert(y);
+          // //  y();
+          // //  y();
+          // //  var z=a();
+          // //  z();
+          // //  y();
+          //
+          // function a(){
+          //   var x=0;
+          //   var b=function(){
+          //     x++;
+          //     alert(x);
+          //   }
+          //    return b;
+          // }
+
+
+          // function indexOf(arr, item) {
+	        //      for(var i=0;i<arr.length;i++){
+          //        if(parseInt(arr[i])==parseInt(item)){
+          //           return i;
+          //         }
+          //       }
+          //   }
+          //   console.log(indexOf([ 1, 2, 3, 4 ], 3));
+
+
+          // function removeWithoutCopy(arr, item) {
+          //   	for(var i=arr.length-1;i>0;i--){
+          //
+          //         if(arr[i]==item){
+          //             arr.splice(i,1);
+          //         }
+          //     }
+          //     return arr;
+          //
+          //   }
+          //
+          //
+          // console.log(removeWithoutCopy([1, 2, 2, 3, 4, 2, 2], 2));
+
+
+        //   function append(arr, item) {
+        //   	  var newArr=[];
+        //       console.log(newArr);
+        //       for(var i=0;i<arr.length;i++){
+        //         newArr.push(arr[i]);
+        //       }
+        //       newArr.push(item);
+        //
+        //       return newArr;
+        //
+        //   }
+        //
+        //
+        // console.log(append([1, 2, 3, 4],  10))
+
+//
+//         function insert(arr, item, index) {
+//           	 var newArr=arr.slice(0);
+//               newArr.splice(index-1,0,item);
+//               return newArr;
+//           }
+//
+// console.log(insert([1, 2, 3, 4], 'z', 2));
+
+function duplicates(arr) {
+var newArr=[];
+newArr[0]=arr[0];
+for(var i=0;i<arr.length;i++){
+    if(check(arr.splice(i,1),arr[i])){
+       if(!check(newArr,arr[i])){
+           newArr.push(arr[i]);
+       }
+
+    }
+}
+return newArr;
+}
+
+
+function check(arr,item){
+for(var i=0;i<arr.length;i++){
+    if(arr[i]==item){
+        return true;
+    }
+}
+return false;
+}
+console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]).sort());
+    </script>
+  </body>
+</html>
