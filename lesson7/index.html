@@ -18,11 +18,12 @@
     <div id="box">div4</div>
 
     <ul>
-      <li>12</li>
+      <li data="cxd">12</li>
       <li>12</li>
       <li>22</li>
       <li>333</li>
     </ul>
+    <input type="radio" checked="checked">
     <script>
       // $(".demo").css({
       //     color:'red',
@@ -45,9 +46,22 @@
       // alert($("li").text());
       // $("li").eq(1).text("<a>vba</a>")
 
-       $("li").eq(1).text("<a>vba</a>").css("color",'red');
+      // $("li").eq(1).text("<a>vba</a>").css("color",'red');
+        // $("li").attr({
+        //   class:'cx',
+        //   id:'demo'
+        // });
+      // alert($("li").attr("data"));
 
-
+      $("li").prop({
+        style:'width:100px',
+        id:'demo',
+        class:'cx'
+      });
+      // $("li").prop(
+      //   'class','cx'
+      // );
+      alert($("input").prop('checked'));
     </script>
   </body>
   </html>

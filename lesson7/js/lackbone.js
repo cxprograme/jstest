@@ -172,6 +172,69 @@
           console.log(this);
           return this;
         }
+      },
+
+      //获取，设置自定义属性
+      attr:function(){
+        var arg=arguments;
+
+        if(arg.length==2){
+
+          this.each(function(){
+            this.setAttribute(arg[0],arg[1]);
+          });
+          return this;
+        }
+        else if(arg.length==1){
+          var typeO=(typeof arg[0]).toLowerCase();
+          if(typeO=='object'){
+            var json=arg[0];
+            for(var key in json){
+              this.each(function(){
+                console.log(key);
+                  this.setAttribute(key,json[key]);
+              })
+            }
+            return this;
+          }else if(typeO=='string'){
+            return  this[0].getAttribute(arg[0]);
+          }
+        }
+      },
+
+      //获取设置内部属性
+      prop:function(){
+        var arg=arguments;
+
+        if(arg.length==2){
+          if(arg[0]=='class'){
+          console.log(1212);
+            arg[0]='className';
+          }
+          this.each(function(){
+            this[arg[0]]=arg[1];
+          });
+          return this;
+        }else if(arg.length==1){
+          var typeO=(typeof arg[0]).toLowerCase();
+          if(typeO=='object'){
+            var json=arg[0];
+
+            for(var key in json){
+
+              this.each(function(){
+                if(key=='class'){
+                    console.log(1212);
+                    key='className';
+                }
+                  this[key]=json[key];
+              })
+            }
+            return this;
+          }else if(typeO=='string'){
+            return  this[0][arg[0]];
+          }
+        }
       }
 
 
