@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组测试</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var arr=['a','c'];
+		// arr.push('');
+		// console.log(arr);
+
+
+		var str='dsada23dsk2323jkddd3';
+		var arr=[];
+		var news='';
+		for(var i in str){
+			if (!isNaN(str[i])){
+				// 当最后一个为数字时，只是把数字拼接到news上，并未将这个news推入数组中
+				news +=str[i];
+			}else{
+				if(news.length!=0){
+					arr.push(news);
+					news='';
+				}
+			}
+		}
+
+		if(news.length!=0){
+			arr.push(news);
+			news='';
+		}
+
+		console.log(arr);
+	</script>
+</body>
+</html>

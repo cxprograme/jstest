@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// function add(num1,num2){
+		// 	console.log(this);
+		// 	return this.value+num1+num2;
+		// }
+		// var data={
+		// 	value:1
+		// };
+		// add.prototype.bindX=function(num1,num2){
+		// 	Add.call(window.data);
+		// }
+		// var  add=new add(3,2);
+		
+	 //    var addEx=add.bindX(data,2);
+
+		// alert(addEx(3));
+
+
+	/*	var a = {n: 1}
+		var b = a;
+		a=a.x={n:2};
+		 // a.x=a={n:2};
+		a.y={n:3};
+		a.z=a={n:4};
+		console.log(a);   //{n:4}
+		console.log(a.x); //undefined
+		console.log(b);	     //{	
+							//	n:1,
+							//	x:{
+							//		n:2,
+							//		y:{
+							//		  n:3	
+							//		},
+							//		z:{
+							//		  n:4	
+							//		}
+							//    }
+							//}
+		
+		console.log(b.y); //undefined*/
+
+			var a = {n: 1}
+		var b = a;
+		a=a.x={n:2};
+		a.x={n:3};
+		console.log(a);   //{n:4}
+		console.log(a.x); //undefined
+		console.log(b);	     
+		console.log(b.x); //undefined
+
+
+
+		// var a = {x:{xx:1},y:2,z:3};
+		// var b = a.x;
+		// a.w = a.x.xx = a.y = a = {x:10,y:20};
+		// console.log(a);
+		// console.log(b);
+		// 
+		// 
+		// function f1(){};
+		// var f=new f1();
+		// console.log(f);
+		// 
+		
+	</script>
+</body>
+</html>

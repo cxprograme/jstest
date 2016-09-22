@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件捕获</title>
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+		.box1,.box2,.box3{
+			padding: 40px;
+		}
+		.box1{
+			background: red;
+		}
+		.box2{
+			background: blue;
+		}
+		.box3{
+			background: green;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">
+			<div class="box3"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var box1=document.getElementsByClassName('box1')[0];
+		var box2=document.getElementsByClassName('box2')[0];
+		var box3=document.getElementsByClassName('box3')[0];
+
+
+		box1.addEventListener('click',f1,true);
+		box1.addEventListener('click',f11,false);
+
+
+		box2.addEventListener('click',f2,true);
+		box2.addEventListener('click',f22,false);
+
+		// 事件源  捕获和不捕获看谁在前，不捕获相当于冒泡
+		box3.addEventListener('click',f33,false);
+		box3.addEventListener('click',f3,true);
+
+
+		function f1(){
+			alert(1);
+		}
+
+		function f11(){
+			alert(11);
+		}
+		function f2(){
+			alert(2);
+		}
+		function f22(){
+			alert(22);
+		}
+		function f3(){
+			alert(33);
+		}
+		function f33(){
+			alert(3);
+		}
+	</script>
+</body>
+</html>

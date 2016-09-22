@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arr 拼接</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*数组合并到其中一个数组上*/
+		var a=[1,2];
+		var b=[3,4];
+		a.push.apply(a,b);
+		console.log(a);
+
+		var c=[1,2,3,4,5];
+		var d=c.join();
+		var e=c.join("|");
+		console.log(d+"..."+typeof d);
+		console.log(e);
+
+		/*数组拼接，返回一个新的数组*/
+		var a1=[
+			{name:'cx'},
+			{name:'cv'}
+		]
+
+		var a2=[
+			{name:'ff'},
+			{name:'rr'}
+		]
+
+		var a3=a1.concat(a2);
+		console.log(a3);
+
+
+		var  b1=[2,3,4,5];
+		var b2=b1.map(function(elem){
+			return elem+1;
+		})
+
+		console.log(b1+'.......'+b2);
+
+
+		var b3=b1.map(function(elem,index,arr){
+			console.log(index+","+elem);
+		})
+
+		var b4=[2,3].map(function(e){
+			console.log(this[e]);
+		},b1);
+
+		var c1=[
+			{
+				name:'jerry',email:"122333"
+			},
+			{
+				name:'cx',email:'3434343'
+			},
+			{
+				name:'ds',email:'2323'
+			}
+
+		]
+
+		var url=c1.map(function(e){
+			return e.name+'='+e.email;
+		}).join('&&');
+		console.log(url);
+	</script>	
+</body>
+</html>

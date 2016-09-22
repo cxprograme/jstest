@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式-全局</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+
+		var str='wewewqwedfd'
+		var reg=/qwe/;
+		console.log(reg.test(str));
+
+
+		/*var reg1=/\//;
+
+		var str1='/';
+
+		alert(reg1.test(str1));*/
+
+
+		/*var reg1=/w/;
+
+		var str1='qwew';
+	    //满足匹配规则，会把匹配成功的内容放到一个数组中 
+		var arr=str1.match(reg1);*/	
+
+		// var reg1=/w{2}/;
+		var reg1=/w+/ig;
+		var str1='Wqwwwew+qwq';
+
+
+
+	    //满足匹配规则，会把匹配成功的内容放到一个数组中 
+		var arr=str1.match(reg1);
+
+
+		// 匹配子集
+		
+		alert(arr);
+	</script>
+</body>
+</html>

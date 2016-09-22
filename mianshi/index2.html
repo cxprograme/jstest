@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现为每个html层加颜色</title>
+	<style type="text/css">
+		#d1,#d2,#d3{
+			padding: 20px;
+		}	
+		#d1{
+			width: 200px;
+			height: 200px
+		}
+		#d2{
+			width: 100px;
+			height: 100px;
+
+		}
+		#d3{
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		<div id="d2">
+			<div id='d3'></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var dom=document.all;
+		//我们通过选择器获得的列表是一个NodeLists对象，它和Javascript中的数组有点像，你可以使用方括号来获取其中的节点，你可以检查其中包含多少个元素，蛋他并没有实现数组包含的所有属性和方法，因此我们不能使用forEach来迭代
+		//
+		
+		[].forEach.call(dom,function(a){
+			a.style.outline='1px solid #'+(~~(Math.random()*(1<<24).toString(16)));
+		})
+	</script>
+</body>
+</html>

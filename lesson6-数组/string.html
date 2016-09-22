@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>String 字符串</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str='abcdabcd,sdd';
+		console.log(str.length);
+		str.length=5;
+		console.log(str.length);
+
+		console.log(str.charAt(2));
+		console.log(str.charCodeAt(2));
+
+		console.log(String.fromCharCode(100));
+
+		console.log(str.indexOf('b'));
+		console.log(str.lastIndexOf('b'));
+
+
+		console.log(str.substring(0,3));
+
+		console.log(str.substring(-3,1));
+
+		console.log(str.slice(-3,str.length-1));
+
+
+		// var arr=str.split('');
+		var arr=str.split(',');
+
+		console.log(str);
+
+		console.log(arr);
+	</script>
+</body>
+</html>

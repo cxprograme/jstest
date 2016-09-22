@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(name){
+			
+			this.name=name;
+		}
+		//创建一个函数的时候 ，同时会创建他的prototype对象，同时也会自动获得constructor的属性
+		//
+		Person.prototype={
+			age:29
+		}
+		var p1=new Person('cx');
+
+		console.log(Person.prototype);
+		console.log(p1.name);
+		console.log(p1.__proto__.age);
+	</script>
+</body>
+</html>

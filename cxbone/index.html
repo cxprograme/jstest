@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+	<script src="cxbone.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var item=[
+			{
+				name:"cx",
+				price:'1.23'
+			},
+			{
+				name:'er',
+				price:2.13
+			},
+			{
+				name:'er',
+				price:1.45
+			},
+			{
+				name:'er',
+				price:2
+			},
+			{
+				name:'er',
+				price:2.34
+			}
+			// ,
+			// {
+			// 	name:'er',
+			// 	price:3.12
+			// }
+		];
+		var total=0;
+		for(var i=0;i<item.length;i++){
+			console.log(typeof item[i].price);
+			total+=Number(item[i].price);
+		}
+		console.log(total);
+
+
+		 	var a=4.32;  
+            var b=9.23;  
+  			alert(a+b);
+            alert(Number((a+b).toFixed(2)));  
+	</script>
+</body>
+</html>

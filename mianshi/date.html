@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间戳</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function formatDate(obj){
+			var date=new Date(Math.floor(parseInt(obj)*1000));
+			var Y=date.getFullYear()+"-";
+			var M=(date.getMonth()+1<10?'0'+(date.getMonth()+1):(date.getMonth()+1))+'-';
+			var D=date.getDate();
+			console.log(Y+M+D);
+		}
+		//毫秒  1473605153000   秒 1473605153
+		formatDate(1473605153);
+	</script>
+</body>
+</html>

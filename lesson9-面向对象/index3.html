@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>construtor  prototype</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*function a(c){
+		    this.b = c;
+		    this.d =function(){
+		        alert(this.b);
+		    }
+		}
+		var obj = new a('test');
+		alert(typeof obj.prototype);//undefine
+		alert(typeof a.prototype);//object
+		a.prototype.add=function(){};
+		console.log(a.prototype);
+		// console.log(a.__proto__);
+
+		console.log(obj);
+		console.log(obj.__proto__===a.prototype);
+		// console.log(obj.prototype);
+		// 
+		
+		console.log(Function);*/
+
+
+
+		var A = function(name)
+		{
+		this.name = name;
+		}
+		var a = new A('alpha');
+		a.name; //’alpha’
+
+		A.prototype.max = 19880716;
+
+		alert(a.max);   //undefined
+	</script>
+</body>
+</html>

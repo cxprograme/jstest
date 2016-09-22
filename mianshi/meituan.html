@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美团</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str1='121!';
+		var str2='1238';
+		var result='';
+		function add(str1,str2){
+			var newStr1=str1-0;
+			var newStr2=str2-0;
+
+			if(isNaN(str1)||isNaN(str2)){
+				result='error'
+				return result;
+			}
+
+			var arr1=str1.split('');
+			var arr2=str2.split('');
+			var len1=arr1.length;
+			var len2=arr2.length;
+			if(len1==len2){
+				for(var i=0;i<len1;i++){
+					result+=parseInt(arr1[i])+parseInt(arr2[i]);
+				}
+				return result;
+			}else if(len1>len2){
+				var len=len1-len2;
+				for(var i=0;i<len;i++){
+					arr2.unshift('0');
+				}
+				for(var i=0;i<arr2.length;i++){
+					result+=parseInt(arr1[i])+parseInt(arr2[i]);
+				}
+
+					return result;
+			}else if(len2>len1){
+				var len=len2-len1;
+				for(var i=0;i<len;i++){
+					arr1.unshift('0');
+				}
+				for(var i=0;i<arr1.length;i++){
+					result+=parseInt(arr1[i])+parseInt(arr2[i]);
+				}
+
+					return result;
+			}
+		}
+		console.log(add(str1,str2));
+
+	</script>
+</body>
+</html>

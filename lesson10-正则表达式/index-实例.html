@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手机号-邮箱</title>
+</head>
+<body>
+	<input type="text" name="" id="oText">
+	<script type="text/javascript">
+		var oText=document.getElementById('oText');
+		/*
+		
+			QQ号为5-10，且第一位不能为0
+		 */
+		// var reg=/^[1-9]\d{4,9}$/;
+
+		/*
+			邮箱
+			字母数子下划线
+		 */
+		// var reg=/^\w+@[0-9a-zA-Z]{2,}(\.[a-zA-Z]{2,7}){1,2}$/;
+		/*
+		
+			电话号码	
+			1 24578  9
+		 */
+		// var reg=/^1[34578]\d{9}$/;
+
+
+		/*
+			身份证
+			开头数字   最后一个数字或者x
+		 */
+		
+		var reg=/^[1-9]\d{16}[0-9xX]$/;
+		oText.onblur=function(){
+			var val=this.value;
+			if(val.length){
+				if(reg.test(val)){
+					alert('OK');
+				}
+				else{
+					alert('Error');
+				}
+			}
+		}
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function SuperType(name,age,color){
+			this.name=name;
+			this.age=age;
+			this.color=['red','green','blue'];
+		}
+
+		SuperType.prototype.sayName=function(){
+			return this.name;
+		}
+
+		function SubType(arr,marry){
+			SuperType.apply(this,arr);
+			this.marry=marry;
+		}
+		SubType.prototype.isMarry=function(){
+			console.log(this.marry);
+		}
+
+
+		SubType.prototype=new SuperType();
+
+		/*重写父类的方法一定要在实例替换原型之后*/
+		SubType.prototype.sayName=function(){
+			return 'error';
+		}
+
+		var instance=new SubType(['cx',12],false);
+		instance.color.push('black');
+
+		console.log(instance.color);
+		console.log(instance.age);
+		console.log(instance.sayName());
+
+
+		var instance1=new SubType(['yu',13],true);
+		console.log(instance1.color);
+	</script>
+</body>
+</html>

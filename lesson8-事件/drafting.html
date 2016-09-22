@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style type="text/css">
+		#wrap{
+			position: absolute;
+			left:0;
+			top:0;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		
+	</div>
+	<script type="text/javascript">
+		/*
+			onmousedown  鼠标按下
+			onmouseup   鼠标抬起
+
+			onmousemove 鼠标移动
+
+
+			拖拽时间尽量在document对象下点击
+		 */
+		var oWrap=document.getElementById('wrap');
+
+		oWrap.onmousedown=function(ev){
+			ev=ev||window.event;
+			
+
+			var eX=ev.clientX;
+			var eY=ev.clientY;
+
+			var wrapX=this.offsetLeft;
+			var wrapY=this.offsetTop;
+			var a=this;
+			document.onmousemove=function(ev){
+				ev=ev||window.event;
+				var eX_=ev.clientX-eX;
+				var eY_=ev.clientY-eY;
+				a.style.left=wrapX+eX_+'px';
+				a.style.top=wrapY+eY_+'px';
+			}
+			document.onmouseup=function(){
+				this.onmousemove=null;
+			}
+		}
+
+		// document.onmousemove=function(){
+		// 	console.log(111);
+		// }
+
+	</script>
+</body>
+</html>

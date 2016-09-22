@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加事件</title>
+	<style type="text/css">	
+		#box{
+			position: absolute;
+			left:0;
+			top:0;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div  id="box"></div>
+	<script type="text/javascript">
+		var box=document.getElementById('box');
+
+		// fn.call(box,2);
+
+		// function fn(data){
+		// 	alert(this+":"+data);
+		// }
+		// 
+		box.onclick=function(){
+			alert(1);
+		}
+		
+		// box.addEventListener('click',function(){
+		// 	alert(2);
+		// },false)
+
+		/*ie中添加attachEvent  但this 指向是widow，所以要通过call 更改this指向*/
+		// box.attachEvent('onclick',function(){
+		// 	alert(3);
+		// })
+		// 
+	// function bind(obj,eventName,eventFn){
+	// 	if(obj.attachEvent){
+	// 		obj.attachEvent('on'+eventName,function(){
+	// 			eventFn.call(obj);
+	// 		})
+	// 	}else{
+	// 		obj.addEventListener(eventName,eventFn,false);
+	// 	}
+	// }
+
+	bind(box,'click',function(){
+		alert(3);
+	})
+
+
+	function bind(obj,eventName,eventFn){
+		obj.attachEvent?obj.attachEvent('on'+eventName,function(){eventFn.call(obj)}):obj.addEventListener(eventName,eventFn,false);
+	}
+	</script>
+</body>
+</html>

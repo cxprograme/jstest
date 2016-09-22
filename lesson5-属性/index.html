@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内置属性</title>
+</head>
+<body>
+	<input type="text"  name="cx" class="txt" index='0'>
+	<input type="text"  name="cx" class="txt" index='0'>
+	<input type="text"  name="cx" class="txt" index='0'>
+	<input type="text"  name="cx" class="txt" index='0'>
+	<script type="text/javascript">
+		var txt=document.getElementsByClassName('txt');
+	/*	for(var i=0;i<txt.length;i++){
+			txt[i].index=i;
+			txt[i].onclick=function(){
+				alert(this.index);
+			}
+		}*/
+
+
+		for(var i=0;i<txt.length;i++){
+			(function(i){
+				txt[i].onclick=function(){
+					alert(i);
+				}
+			})(i);
+			
+		}
+
+
+		console.log(txt);
+	</script>
+</body>
+</html>

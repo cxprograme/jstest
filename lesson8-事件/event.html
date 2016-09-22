@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event时间</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// alert(event);
+		document.onclick=function(ev){
+			// alert(ev);					//ie8-中是不支持第一个参数事件 ie8-只支持event
+			//   ie9+ chrome firefox 都支持
+			// 事件兼容 ie8-  ie9+  chrome firefox
+			ev=ev||window.event;
+			for(var key in ev){
+				document.write(key+':'+ev[key]+'<br>');
+			}
+		}
+	</script>
+</body>
+</html>

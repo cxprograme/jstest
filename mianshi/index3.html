@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+
+		Person.prototype.marry=false;
+		Person.prototype.showName=function(){
+			alert(this.name);
+		}
+		var p1=new Person();
+		p1.name="ymj"
+		
+
+		delete p1.name;
+		
+
+		console.log(Person.hasOwnProperty);
+		console.log(p1.name);
+
+		console.log(Person.prototype);
+		console.log(Person.marry);
+		console.log(Person.prototype.constructor.prototype.marry);
+		console.log(p1);
+		p1.showName();
+	</script>
+</body>
+</html>

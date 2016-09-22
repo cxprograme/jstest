@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承之克隆</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a={
+			name:'cx',
+			age:12,
+			info:{
+				birth:1212
+			}
+		}
+
+
+		// function Clone(obj){
+		// 	var newObj={};
+		// 	for(var key in obj){
+		// 		if(typeof obj[key]=='object'){
+		// 			newObj[key]=Clone(obj[key]);
+		// 		}else{
+		// 			newObj[key]=obj[key];
+		// 		}
+				
+		// 	}
+		// 	return newObj;
+		// }
+
+
+		function Clone(obj){
+			for(var key in obj){
+				this[key]=typeof obj[key]=='object'?new Clone(obj[key]):obj[key];
+			}
+		}
+		var b=new Clone(a);
+		b.info.c='c';
+		console.log(a.info.c);
+	</script>
+</body>
+</html>

@@ -1,38 +1,37 @@
-function move(obj,mjson,time,callback,cv){
-  var cv=cv||'linear';
-  var startValue={};
-  var endValue={};
-  for(var key in mjson){
-    startValue[key]=parseInt(getStyle(obj,key));
-    endValue[key]=parseInt(mjson[key]);
-  }
-  var startTime=new Date();
-  var timer=setInterval(function(){
-    var endTime=new Date();
-    var t=endTime-startTime;
-    var d=time;
-    if(t>=time){
-      t=d;
-      clearInterval(timer);
-    }
-    for(var key in mjson){
-      var b=startValue[key];
-      var c=endValue[key]-startValue[key];
-      var x=Tween[cv](t,b,c,d);
-      obj.style[key]=x+"px";
-    }
-
-    if(t===d){
-        callback&&callback.call(obj);
-    }
-
-  },13);
-}
-
 function getStyle(obj,attr){
-  return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
-}
+		return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+	}
+function move(obj,mjson,time,callback,cv){
+	var cv=cv||'linear';
+	var startValue={};
+	var endValue={};
+	for(var key in mjson){
+		startValue[key]=parseInt(getStyle(obj,key));
+		endValue[key]=parseInt(mjson[key]);
+	}
+	var startTime=new Date();
+	var timer=setInterval(function(){
 
+		var endTime=new Date();
+		var t=endTime-startTime;
+		var d=time;
+		if(t>=d){
+			t=d;
+			clearInterval(timer);
+			
+		}
+		for(var key in mjson){
+			var b=startValue[key];
+			var c=endValue[key]-startValue[key];
+			var left=Tween[cv](t,b,c,d);
+			obj.style[key]=left+'px';
+		}
+		if(t===d){
+			callback&&callback.call(obj);
+		}
+		
+	},13);
+}
 /**
  * 
  * t:时间差

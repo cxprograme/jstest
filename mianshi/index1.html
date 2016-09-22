@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建长度为100的数组，并计算前100的值</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=Array(100).join(',').split(',').map(function(elem,index,arr){
+			// return index+(0|Math.random()*100);
+			return index+(~~(Math.random()*100));
+		});
+		var sum=0;
+		console.log(arr);
+		sum=arr.slice(0,11).reduce(function(pre,cur,index){
+			console.log(index);
+			return pre+cur;
+		})
+
+		console.log(sum);
+
+		console.log(0|Math.random()*100);
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>包装对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=[1,2,3];
+		console.log(arr);
+
+		Array.prototype.push=function(){
+			var arg=arguments;
+			for(var i=0;i<arg.length;i++){
+				this[this.length]=arg[i];
+			}
+		};
+		arr.push(4);
+		alert(arr);
+
+		//对于非对象的数据类型，是由包装对象产生的
+		var str='121';
+		console.log(str);
+		str.number=10  //String.prototype  此时会产生包装对象  语句结束后，包装对象立马消失
+
+		alert(str.number);
+	</script>
+</body>
+</html>

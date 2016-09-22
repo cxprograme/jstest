@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+		html{
+			/*font-size: 10px;*/
+		}
+		li{
+			list-style: none;
+		}
+		.wrap{
+			position: absolute;
+			left:50%;
+			top:50%;
+			margin-left: -260px;
+			margin-top:-140px;
+			width:520px;height:280px;
+
+		}
+		.pic{
+			width:100%;
+			height:auto;
+			overflow: hidden;
+		}
+		.pic ul{
+			width:3000%;
+			/*transition: all 1s linear;*/
+			margin-left: -520px;
+		}
+		.pic ul li{
+			list-style: none;
+			width:520px;
+			height:280px;
+			display: block;
+			float: left;
+		}
+		.wrap .btn{
+			position: absolute;
+			top:50%;
+			margin-top: -25px;
+			width:100%;
+			height: 50px
+
+		}
+		.wrap .btn .left,.wrap .btn .right{
+			display: block;
+			height: 50px;
+			font-size: 50px;
+		}
+		.wrap .btn .left{
+
+			float: left;		
+		}
+		.wrap .btn .right{
+			text-align: right;
+		}
+		
+		.tag{
+			position: absolute;
+			width:90px;
+			left: 50%;
+			margin-left: -45px;
+			bottom: 13px;
+		}
+		.tag li{
+			width:10px;
+			height: 10px;
+			border-radius: 10px;
+			border:1px solid #eee;
+			display: inline-block;
+			background-color: #eee;
+		}
+		.tag li+li{
+			margin-left: 3px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="pic">
+			<ul>
+				<li><img src="img/5.jpg" alt=""></li>
+				<li><img src="img/1.jpg" alt=""></li>
+				<li><img src="img/2.jpg" alt=""></li>
+				<li><img src="img/3.jpg" alt=""></li>
+				<li><img src="img/4.jpg" alt=""></li>
+				<li><img src="img/5.jpg" alt=""></li>
+				<li><img src="img/1.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div class="btn">
+			<span class="left">&lt;</span>
+			<span class="right">&gt;</span>
+		</div>
+		<div class="tag">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var wrap=document.getElementsByClassName('wrap')[0];
+		var pic=document.getElementsByClassName('pic')[0];
+		var pul=pic.getElementsByTagName('ul')[0];
+		var pli=pic.getElementsByTagName('li');
+		var left=document.getElementsByClassName('left')[0];
+		var right=document.getElementsByClassName('right')[0];
+		var tag=document.getElementsByClassName('tag')[0];
+		var tli=tag.getElementsByTagName('li');
+
+		var index=0;
+
+		tli[0].style.background='orange';
+		left.onclick=function(){
+			tli[index].style.background='#eee';
+			index--;
+			
+			/*var now=index;
+			if(now<0){
+				now=tli.length-1;
+			}
+			tli[now].style.background='orange';
+			move(pul,{'marginLeft':-520*(index+1)},1000,function(){
+				if (index<=-1) {
+					index=tli.length-1;
+					console.log(this);
+					this.style.marginLeft=-520*tli.length+'px';
+				}
+			});*/
+			change();
+		};
+
+		right.onclick=function(){
+			tli[index].style.background='#eee';
+			index++;
+			/*var now=index;
+			if(now>=tli.length){
+				now=0;
+			}
+			tli[now].style.background='orange';
+			move(pul,{'marginLeft':-520*(index+1)},1000,function(){
+				if (index>=tli.length) {
+					index=0;
+					console.log(this);
+					this.style.marginLeft=-520+'px';
+				}
+			});*/
+			change();
+			
+			
+		};
+
+		for (var i = 0; i <tli.length; i++) {
+
+			(function(i){
+				tli[i].onclick=function(){
+					tli[index].style.background='#eee';
+					move(pul,{'marginLeft':-520*(i+1)},1000);
+					index=i;
+					tli[index].style.background='orange';
+				};
+			})(i);	
+		}
+		var timer;
+		function auto(){
+			timer=setInterval(function(){
+			tli[index].style.background='#eee';
+			index++;
+			/*var now=index;
+
+			move(pul,{'marginLeft':-520*(index+1)},1000,function(){
+				console.log(now);
+				if (now>=tli.length) {
+					index=0;
+					console.log(this);
+					this.style.marginLeft=-520+'px';
+				}
+			});
+			if (index>=tli.length){
+				index=0;
+			}
+			tli[index].style.background='orange';*/
+			change();
+			},2000);
+		}
+
+		function change(){
+			var now=index;
+			if(now>=tli.length){
+				now=0;
+			}else if(now<0){
+				now=tli.length-1;
+			}
+			tli[now].style.background='orange';
+			move(pul,{'marginLeft':-520*(index+1)},1000,function(){
+				if (index>=tli.length) {
+					index=0;
+					this.style.marginLeft=-520+'px';
+				}else if(index<=-1) {
+					index=tli.length-1;
+					this.style.marginLeft=-520*tli.length+'px';
+				}
+			});
+		}
+		auto();
+		
+		wrap.onmouseover=function(){
+			clearInterval(timer);
+		};
+		wrap.onmouseout=function(){
+			auto();
+		}
+	</script>
+	<script type="text/javascript" src="js/move.js"></script>
+</body>
+</html>
