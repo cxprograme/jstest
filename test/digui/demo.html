@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*var factorial=(function f(num){
+			if(num<=1){
+				return 1;
+			}else{
+				return num*f(num-1);
+			}
+
+			return num<=1?1:num*f(num-1);
+		});
+
+		var autoFactorial=factorial;
+		factorial=null;
+		console.log(autoFactorial(4));*/
+
+
+		/**
+		 * arguments.callee 是指向正在执行的函数的指针
+		 * @param  {[type]} num [description]
+		 * @return {[type]}     [description]
+		 */
+		function factorial(num){
+			return num<=1?1:num*arguments.callee(num-1);
+		}
+		var autoFactorial=factorial;
+		factorial=null;
+		console.log(autoFactorial(4));
+
+	</script>
+</body>
+</html>

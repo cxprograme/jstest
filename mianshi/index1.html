@@ -20,6 +20,15 @@
 		console.log(sum);
 
 		console.log(0|Math.random()*100);
+
+
+		var  arr1=Array(10).join(",").split(",").map(function(elem,index,arr){
+			return Math.ceil(Math.random()*100+1);
+		});
+		arr1.sort(function(a,b){
+			return a<b;
+		})
+		alert(arr1);
 	</script>
 </body>
 </html>

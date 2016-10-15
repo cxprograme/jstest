@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量提升</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// var a=100;
+		// function test(){
+
+		// 	console.log(a);
+		// 	a=10;
+		// 	console.log(a);
+		// }
+
+
+		// test();
+
+
+
+		// function fn(a){
+		//     console.log(a);
+		//     var a=2;
+		//     function a(){}
+		//     console.log(a);
+		// }
+		// fn(1);
+
+
+		var a = 10;
+		function test(){
+			console.log(a);
+		    a = 100;
+		    console.log(this.a);
+		    var a;
+		    console.log(a);
+		}
+		test();
+		// 
+		// 
+		// 
+		var a1 = 100;
+		function test1(){
+		    console.log(a1);
+		    a1 = 10;
+		    console.log(this.a1);
+		}
+
+		test1();
+		console.log(a1);
+
+
+
+		for (var i = 0;i<=3;i++){
+		    setTimeout(function (){
+		        console.log(i);
+		    },0);
+		}
+
+
+		//字符串去重
+		//
+		var str='ajdkska';
+		
+	</script>
+</body>
+</html>
